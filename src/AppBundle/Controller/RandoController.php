@@ -79,6 +79,22 @@ class RandoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if($editForm->get('phrando')->getData() != null) {
+                if($rando->getPhoto() != null) {
+                    unlink(__DIR__.'/../../../web/uploads/photosrandos/'.$rando->getPhoto());
+                    $rando->setPhoto(null);
+                }
+            }
+//            if($editForm->get('filekml')->getData() != null) {
+//                if($rando->getFickml() != null) {
+//                    unlink(__DIR__.'/../../../web/uploads/fileskml/'.$rando->getFickml());
+//                    $rando->setFickml(null);
+//                }
+//            }
+            
+            $rando->preUpload();
+
             $em->persist($rando);
             $em->flush();
 

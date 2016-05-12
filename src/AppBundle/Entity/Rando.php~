@@ -11,7 +11,7 @@ class Rando
 {
     public $phrando;
 
-//    public $filekml;
+    public $filekml;
 
     public function __toString()
     {
@@ -33,102 +33,6 @@ class Rando
     public function getAbsolutePath()
     {
         return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
-    }
-
-//    protected function getUploadDirKML()
-//    {
-//        return 'uploads/fileskml';
-//    }
-//    protected function getUploadRootDirKML()
-//    {
-//        return __DIR__.'/../../../web/'.$this->getUploadDirKML();
-//    }
-//    public function getWebPathKML()
-//    {
-//        return null === $this->fickml ? null : $this->getUploadDirKML().'/'.$this->fickml;
-//    }
-//    public function getAbsolutePathKML()
-//    {
-//        return null === $this->fickml ? null : $this->getUploadRootDirKML().'/'.$this->fickml;
-//    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function preUpload()
-    {
-        // Add your code here
-        if (null !== $this->phrando) {
-            // do whatever you want to generate a unique name
-            $this->photo = uniqid().'.'.$this->phrando->guessExtension();
-        }
-//        if (null !== $this->filekml) {
-//            // do whatever you want to generate a unique name
-//            $this->fickml = uniqid().'.'.$this->filekml->getClientOriginalExtension() ;
-//        }
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue()
-    {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function setExpiresAtValue()
-    {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAtValue()
-    {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PostPersist
-     */
-    public function upload()
-    {
-        if (null !== $this->phrando) {
-            // if there is an error when moving the file, an exception will
-            // be automatically thrown by move(). This will properly prevent
-            // the entity from being persisted to the database on error
-
-            $this->phrando->move($this->getUploadRootDir(), $this->photo);
-
-            unset($this->phrando);
-        }
-//        if (null !== $this->filekml) {
-//            // if there is an error when moving the file, an exception will
-//            // be automatically thrown by move(). This will properly prevent
-//            // the entity from being persisted to the database on error
-//
-//            $this->filekml->move($this->getUploadRootDirKML(), $this->fickml);
-//
-//            unset($this->filekml);
-//        }
-    }
-
-    /**
-     * @ORM\PostRemove
-     */
-    public function removeUpload()
-    {
-        // Add your code here
-        if ($phrando = $this->getAbsolutePath()) {
-            unlink($phrando);
-        }
-//        if ($filekml = $this->getAbsolutePathKML()) {
-//            unlink($filekml);
-//        }
     }
 
     // GENERATED CODE

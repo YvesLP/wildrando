@@ -23,7 +23,9 @@ class RandoType extends AbstractType
             ->add('distance')
             ->add('duree', 'time')
             ->add('fickml')
-            ->add('photo')
+//            ->add('filekml', 'file', array('label' => 'Fichier KML', 'required' => true))
+//            ->add('photo')
+            ->add('phrando', 'file', array('label' => 'Photo Randonnée', 'required' => true))
         ;
     }
     

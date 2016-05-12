@@ -38,12 +38,15 @@
                 <td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Fickml</th>
-                <td>{{ rando.fickml }}</td>
+                <th>URL KML</th>
+                {#<td>{{ rando.fickml }}</td>#}
+                {#<td><a class="fickml_rando" href="{{ asset('uploads/fileskml/')}}{{ rando.fickml }}">KML</a></td>#}
+                <td><a class="urlkml_rando" href="{{ rando.fickml }}">URL</a></td>
             </tr>
             <tr>
-                <th>Photo</th>
-                <td>{{ rando.photo }}</td>
+                <th>Photo de la rando</th>
+                {#<td>{{ rando.photo }}</td>#}
+                <td><img class="image_rando" src="{{ asset('uploads/photosrandos/')}}{{ rando.photo }}"></td>
             </tr>
         </tbody>
     </table>

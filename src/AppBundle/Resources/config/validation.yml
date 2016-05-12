@@ -1,0 +1,17 @@
+# src/AppBundle/Resources/config/validation.yml
+AppBundle\Entity\Rando:
+    properties:
+        phrando:
+            - Image: ~
+        fickml:
+            - Url: ~
+#        filekml:
+#            - NotBlank: ~
+#            - Length:
+#                min: 5
+#            - Application:
+#                mimeTypes: [filekml/kml]
+#            - Regex:
+#                pattern: '\*.kml$/i'
+#                pattern: '(.kml)$/i'
+#                pattern: '*\.\(kml\KML\)$/i'

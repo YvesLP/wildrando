@@ -14,7 +14,7 @@
                 <th>Niveau</th>
                 <th>Distance</th>
                 <th>Duree</th>
-                <th>Fickml</th>
+                <th>URL KML</th>
                 <th>Photo</th>
                 <th>Actions</th>
             </tr>
@@ -30,8 +30,11 @@
                 <td>{{ rando.niveau }}</td>
                 <td>{{ rando.distance }}</td>
                 <td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>
-                <td>{{ rando.fickml }}</td>
-                <td>{{ rando.photo }}</td>
+                {#<td>{{ rando.fickml }}</td>#}
+                {#<td><a class="fickml_rando" href="{{ asset('uploads/fileskml/')}}{{ rando.fickml }}">Fichier KML</a></td>#}
+                <td><a class="urlkml_rando" href="{{ rando.fickml }}">URL</a></td>
+                {#<td>{{ rando.photo }}</td>#}
+                <td><img class="image_rando" src="{{ asset('uploads/photosrandos/')}}{{ rando.photo }}"></td>
                 <td>
                     <ul>
                         <li>
