@@ -18,20 +18,28 @@
                 <td>{% if montrek.temps %}{{ montrek.temps|date('H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Depart</th>
+                <th>Départ</th>
                 <td>{% if montrek.depart %}{{ montrek.depart|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Arrivee</th>
+                <th>Arrivée</th>
                 <td>{% if montrek.arrivee %}{{ montrek.arrivee|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Meteo</th>
+                <th>Indice Méteo</th>
                 <td>{{ montrek.meteo }}</td>
             </tr>
             <tr>
-                <th>Meteotxt</th>
+                <th>Meteo (texte)</th>
                 <td>{{ montrek.meteotxt }}</td>
+            </tr>
+            <tr>
+                <th>Randonneur</th>
+                <td>{{ montrek.randonneur.username }}</td>
+            </tr>
+            <tr>
+                <th>Randonnée</th>
+                <td>{{ montrek.randonnee.libelle }}</td>
             </tr>
         </tbody>
     </table>
