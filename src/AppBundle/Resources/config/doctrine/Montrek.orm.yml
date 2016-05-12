@@ -1,0 +1,36 @@
+AppBundle\Entity\Montrek:
+    type: entity
+    table: montrek
+    repositoryClass: AppBundle\Repository\MontrekRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        jour:
+            type: date
+        temps:
+            type: time
+        depart:
+            type: datetime
+        arrivee:
+            type: datetime
+        meteo:
+            type: integer
+        meteotxt:
+            type: string
+            length: 255
+    manyToOne:
+        randonneur:
+            targetEntity: AppBundle\Entity\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        randonnee:
+            targetEntity: AppBundle\Entity\Rando
+            joinColumn:
+                name: rando_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
