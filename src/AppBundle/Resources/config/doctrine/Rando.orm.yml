@@ -1,0 +1,39 @@
+AppBundle\Entity\Rando:
+    type: entity
+    table: rando
+    repositoryClass: AppBundle\Repository\RandoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libelle:
+            type: string
+            length: 255
+            unique: true
+        depart:
+            type: string
+            length: 255
+        arrivee:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        niveau:
+            type: integer
+        distance:
+            type: decimal
+            precision: '5'
+            scale: '1'
+        duree:
+            type: time
+        fickml:
+            type: string
+            length: 255
+        photo:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

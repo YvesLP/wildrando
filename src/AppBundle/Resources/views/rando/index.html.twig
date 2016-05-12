@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rando list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Depart</th>
+                <th>Arrivee</th>
+                <th>Type</th>
+                <th>Niveau</th>
+                <th>Distance</th>
+                <th>Duree</th>
+                <th>Fickml</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rando in randos %}
+            <tr>
+                <td><a href="{{ path('rando_show', { 'id': rando.id }) }}">{{ rando.id }}</a></td>
+                <td>{{ rando.libelle }}</td>
+                <td>{{ rando.depart }}</td>
+                <td>{{ rando.arrivee }}</td>
+                <td>{{ rando.type }}</td>
+                <td>{{ rando.niveau }}</td>
+                <td>{{ rando.distance }}</td>
+                <td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>
+                <td>{{ rando.fickml }}</td>
+                <td>{{ rando.photo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rando_show', { 'id': rando.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rando_edit', { 'id': rando.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rando_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

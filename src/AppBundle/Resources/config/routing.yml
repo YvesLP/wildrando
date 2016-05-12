@@ -1,0 +1,7 @@
+app_rando:
+    resource: "@AppBundle/Resources/config/routing/rando.yml"
+    prefix:   /rando
+
+app_montrek:
+    resource: "@AppBundle/Resources/config/routing/montrek.yml"
+    prefix:   /montrek

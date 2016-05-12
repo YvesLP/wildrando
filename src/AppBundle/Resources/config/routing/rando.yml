@@ -1,0 +1,24 @@
+rando_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Rando:index" }
+    methods:  GET
+
+rando_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Rando:show" }
+    methods:  GET
+
+rando_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Rando:new" }
+    methods:  [GET, POST]
+
+rando_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Rando:edit" }
+    methods:  [GET, POST]
+
+rando_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Rando:delete" }
+    methods:  DELETE
