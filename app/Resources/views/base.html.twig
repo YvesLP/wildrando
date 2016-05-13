@@ -2,9 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Site-Parcours-Randonnée">
+        <meta name="author" content="Yves-Jullian-OMar">
         <title>{% block title %}WildRando{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{ asset('/wildrandoCss/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/wildrandoCss/footer.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/wildrandoCss/styles.css') }}">
         {% endblock %}
@@ -22,12 +25,22 @@
     </head>
     <body>
         <div class="container-fluid wrapper">
+            <div class="carousel slide carousel-fade" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                    </div>
+                    <div class="item">
+                    </div>
+                    <div class="item">
+                    </div>
+                </div>
+            </div>
         {% block menu %}{% endblock %}
-
-        {% block section %}{% endblock %} 
-
         {% block body %}{% endblock%}
-
+        {% block fos_user_content %}{% endblock %}   
+        {% block accueil %}{% endblock %}
+        {% block section %}{% endblock %}  
         {% block footer %}{% endblock %}
         </div>
     </body>

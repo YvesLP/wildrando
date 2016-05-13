@@ -2,14 +2,14 @@
 {% block menu %}{% include 'menu/index.html.twig' %}{% endblock %}
 {% block section %}
 <div class="row marg-row">
+	<div class="panel marg-pad-h3 col-lg-3 bg-tr">
+	{% block sport %}{% include 'sport/index.html.twig' %}{% endblock %}
+	</div>
 	<div class="col-lg-3">
 		
 	</div>
 	<div class="col-lg-6">
-		{% block maps %}{% include 'maps/index.html.twig' %}{% endblock %}
-	</div>
-	<div class="col-lg-3">
-		
+	{% block maps %}{% include 'maps/index.html.twig' %}{% endblock %}
 	</div>
 </div>
 {% endblock %}  
