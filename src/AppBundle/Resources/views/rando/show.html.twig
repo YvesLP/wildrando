@@ -1,63 +1,88 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rando</h1>
+    <h1>Randonnée</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ rando.id }}</td>
-            </tr>
-            <tr>
-                <th>Libelle</th>
-                <td>{{ rando.libelle }}</td>
-            </tr>
-            <tr>
-                <th>Depart</th>
-                <td>{{ rando.depart }}</td>
-            </tr>
-            <tr>
-                <th>Arrivee</th>
-                <td>{{ rando.arrivee }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ rando.type }}</td>
-            </tr>
-            <tr>
-                <th>Niveau</th>
-                <td>{{ rando.niveau }}</td>
-            </tr>
-            <tr>
-                <th>Distance</th>
-                <td>{{ rando.distance }}</td>
-            </tr>
-            <tr>
-                <th>Duree</th>
-                <td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Fickml</th>
-                <td>{{ rando.fickml }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ rando.photo }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="panel panel-primary">
+        <table>
+            <tbody>
+                <tr>
+                    {#<th>Id</th>#}
+                    {#<td>{{ rando.id }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">N°</h3></div>
+                    <div class="panel-body">{{ rando.id }}</div>
+                </tr>
+                <tr>
+                    {#<th>Libellé</th>#}
+                    {#<td>{{ rando.libelle }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Libellé</h3></div>
+                    <div class="panel-body">{{ rando.libelle }}</div>
+                </tr>
+                <tr>
+                    {#<th>Départ  (date/heure)</th>#}
+                    {#<td>{{ rando.depart }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Départ  (date/heure)</h3></div>
+                    <div class="panel-body">{{ rando.depart }}</div>
+                </tr>
+                <tr>
+                    {#<th>Arrivée  (date/heure)</th>#}
+                    {#<td>{{ rando.arrivee }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Arrivée  (date/heure)</h3></div>
+                    <div class="panel-body">{{ rando.arrivee }}</div>
+                </tr>
+                <tr>
+                    {#<th>Type</th>#}
+                    {#<td>{{ rando.type }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Type</h3></div>
+                    <div class="panel-body">{{ rando.type }}</div>
+                </tr>
+                <tr>
+                    {#<th>Niveau</th>#}
+                    {#<td>{{ rando.niveau }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Niveau</h3></div>
+                    <div class="panel-body">{{ rando.niveau }}</div>
+                </tr>
+                <tr>
+                    {#<th>Distance</th>#}
+                    {#<td>{{ rando.distance }}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Distance</h3></div>
+                    <div class="panel-body">{{ rando.distance }}</div>
+                </tr>
+                <tr>
+                    {#<th>Durée estimée</th>#}
+                    {#<td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Durée estimée</h3></div>
+                    <div class="panel-body">{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</div>
+                </tr>
+                <tr>
+                    {#<th>URL KML</th>#}
+                    {#<td>{{ rando.fickml }}</td>#}
+                    {#<td><a class="fickml_rando" href="{{ asset('uploads/fileskml/')}}{{ rando.fickml }}">KML</a></td>#}
+                    {#<td><a class="urlkml_rando" href="{{ rando.fickml }}">URL</a></td>#}
+                    <div class="panel-heading"><h3 class="panel-title">URL KML</h3></div>
+                    <div class="panel-body"><a class="urlkml_rando" href="{{ rando.fickml }}">URL</a></div>
+                </tr>
+                <tr>
+                    {#<th>Photo randonnée</th>#}
+                    {#<td>{{ rando.photo }}</td>#}
+                    {#<td><img class="image_rando" src="{{ asset('uploads/photosrandos/')}}{{ rando.photo }}"></td>#}
+                    <div class="panel-heading"><h3 class="panel-title">Photo randonnée</h3></div>
+                    <div class="panel-body"><img class="image_rando" src="{{ asset('uploads/photosrandos/')}}{{ rando.photo }}"></div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <ul>
         <li>
-            <a href="{{ path('rando_index') }}">Back to the list</a>
+            <a href="{{ path('rando_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('rando_edit', { 'id': rando.id }) }}">Edit</a>
+            <a href="{{ path('rando_edit', { 'id': rando.id }) }}">Modification</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Suppression">
             {{ form_end(delete_form) }}
         </li>
     </ul>

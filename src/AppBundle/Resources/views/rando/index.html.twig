@@ -1,55 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rando list</h1>
+    <h1>Liste des randonnées proposées</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Libelle</th>
-                <th>Depart</th>
-                <th>Arrivee</th>
-                <th>Type</th>
-                <th>Niveau</th>
-                <th>Distance</th>
-                <th>Duree</th>
-                <th>Fickml</th>
-                <th>Photo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for rando in randos %}
-            <tr>
-                <td><a href="{{ path('rando_show', { 'id': rando.id }) }}">{{ rando.id }}</a></td>
-                <td>{{ rando.libelle }}</td>
-                <td>{{ rando.depart }}</td>
-                <td>{{ rando.arrivee }}</td>
-                <td>{{ rando.type }}</td>
-                <td>{{ rando.niveau }}</td>
-                <td>{{ rando.distance }}</td>
-                <td>{% if rando.duree %}{{ rando.duree|date('H:i:s') }}{% endif %}</td>
-                <td>{{ rando.fickml }}</td>
-                <td>{{ rando.photo }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('rando_show', { 'id': rando.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('rando_edit', { 'id': rando.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="panel panel-default">
+        <table class="table">
+                <div class="panel-heading">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Libellé</th>
+                            <th>Départ (lieu)</th>
+                            <th>Arrivée (lieu)</th>
+                            <th>Type (Equestre, Pédestre, Cycliste, VTT)</th>
+                            <th>Niveau difficulté</th>
+                            <th>Distance</th>
+                            <th>Durée estimée</th>
+                            <th>URL KML</th>
+                            <th>Photo</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </div>
+            <tbody>
+            {% for rando in randos %}
+                <tr>
+                    <td><a href="{{ path('rando_show', { 'id': rando.id }) }}">{{ rando.id }}</a></td>
+                    <td>{{ rando.libelle }}</td>
+                    <td>{{ rando.depart }}</td>
+                    <td>{{ rando.arrivee }}</td>
+                    <td>{{ rando.type }}</td>
+                    <td>{{ rando.niveau }}</td>
+                    <td>{{ rando.distance }}</td>
+                    <td>{% if rando.duree %}{{ rando.duree|date('H:i') }}{% endif %}</td>
+                    {#<td>{{ rando.fickml }}</td>#}
+                    {#<td><a class="fickml_rando" href="{{ asset('uploads/fileskml/')}}{{ rando.fickml }}">Fichier KML</a></td>#}
+                    <td><a class="urlkml_rando" href="{{ rando.fickml }}">URL</a></td>
+                    {#<td>{{ rando.photo }}</td>#}
+                    <td><img max-width class="image_rando" src="{{ asset('uploads/photosrandos/')}}{{ rando.photo }}"></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('rando_show', { 'id': rando.id }) }}">Détails</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('rando_edit', { 'id': rando.id }) }}">Modification</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <ul>
         <li>
-            <a href="{{ path('rando_new') }}">Create a new entry</a>
+            <a href="{{ path('rando_new') }}">Créer une randonnée</a>
         </li>
     </ul>
 {% endblock %}
