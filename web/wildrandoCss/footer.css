@@ -3,7 +3,7 @@
 \*=============================*/
 footer.container-footer {
 	position: absolute;
-	top: 100%;
+	bottom: 0;
 	width:100%;
 	background-color: #F0F0F0;
 	border-top: solid #3B3C3D 4px;
