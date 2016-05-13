@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use AppBundle\Entity\Rando;
 use AppBundle\Form\RandoType;
+use Cmfcmf\OpenWeatherMap;
+use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 
 /**
  * Rando controller.
@@ -61,9 +63,49 @@ class RandoController extends Controller
     {
         $deleteForm = $this->createDeleteForm($rando);
 
+        // Must point to composer's autoload file.
+        //require 'vendor/autoload.php';
+        //require __DIR__.'/../vendor/autoload.php';
+        
+        // Language of data (try your own language here!):
+        $lang = 'fr';
+
+        // Units (can be 'metric' or 'imperial' [default]):
+        $units = 'metric';
+
+        // Create OpenWeatherMap object.
+        // Don't use caching (take a look into Examples/Cache.php to see how it works).
+        //$owm = new OpenWeatherMap('YOUR-API-KEY');
+        $owm = new OpenWeatherMap('bc019be8fa6ff11ef0555930ec833d6b');
+
+        try {
+            //$weatherdep = $owm->getWeather('Paris', $units, $lang);
+            $weatherdep = $owm->getWeather($rando->getDepart(), $units, $lang);
+        } catch(OWMException $e) {
+            echo 'OpenWeatherMap exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        } catch(\Exception $e) {
+            echo 'General exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        }
+
+        try {
+            //$weatherarr = $owm->getWeather('Lyon', $units, $lang);
+            $weatherarr = $owm->getWeather($rando->getArrivee(), $units, $lang);
+        } catch(OWMException $e) {
+            echo 'OpenWeatherMap exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        } catch(\Exception $e) {
+            echo 'General exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').';
+        }
+
+        //echo $weather->temperature;
+        //var_dump($weatherarr);exit;
+
+        //var_dump($rando);exit;
+        
         return $this->render('AppBundle:rando:show.html.twig', array(
             'rando' => $rando,
             'delete_form' => $deleteForm->createView(),
+            'tempdepart' => $weatherdep->temperature,
+            'temparrivee' => $weatherarr->temperature,
         ));
     }
 
