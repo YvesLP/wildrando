@@ -1,51 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Montrek list</h1>
+    <h1>Liste des randonnées effectuées</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Jour</th>
-                <th>Temps</th>
-                <th>Depart</th>
-                <th>Arrivee</th>
-                <th>Meteo</th>
-                <th>Meteotxt</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for montrek in montreks %}
-            <tr>
-                <td><a href="{{ path('montrek_show', { 'id': montrek.id }) }}">{{ montrek.id }}</a></td>
-                <td>{% if montrek.jour %}{{ montrek.jour|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if montrek.temps %}{{ montrek.temps|date('H:i:s') }}{% endif %}</td>
-                <td>{% if montrek.depart %}{{ montrek.depart|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if montrek.arrivee %}{{ montrek.arrivee|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ montrek.meteo }}</td>
-                <td>{{ montrek.meteotxt }}</td>
-                <td>{{ montrek.randonneur.username }}</td>
-                <td>{{ montrek.randonnee.libelle }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('montrek_show', { 'id': montrek.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('montrek_edit', { 'id': montrek.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="panel panel-default">
+        <table class="table">
+            <div class="panel-heading">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Temps réalisé</th>
+                        <th>Départ (date/heure)</th>
+                        <th>Arrivée (date/heure)</th>
+                        <th>Indice méteo</th>
+                        <th>Metéo (description)</th>
+                        <th>Randonneur</th>
+                        <th>Randonnée</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </div>
+            <tbody>
+            {% for montrek in montreks %}
+                <tr>
+                    <td><a href="{{ path('montrek_show', { 'id': montrek.id }) }}">{{ montrek.id }}</a></td>
+                    <td>{% if montrek.jour %}{{ montrek.jour|date('d-m-Y') }}{% endif %}</td>
+                    <td>{% if montrek.temps %}{{ montrek.temps|date('H:i:s') }}{% endif %}</td>
+                    <td>{% if montrek.depart %}{{ montrek.depart|date('d-m-Y H:i:s') }}{% endif %}</td>
+                    <td>{% if montrek.arrivee %}{{ montrek.arrivee|date('d-m-Y H:i:s') }}{% endif %}</td>
+                    <td>{{ montrek.meteo }}</td>
+                    <td>{{ montrek.meteotxt }}</td>
+                    <td>{{ montrek.randonneur.username }}</td>
+                    <td>{{ montrek.randonnee.libelle }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('montrek_show', { 'id': montrek.id }) }}">Détails</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('montrek_edit', { 'id': montrek.id }) }}">Modification</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <ul>
         <li>
-            <a href="{{ path('montrek_new') }}">Create a new entry</a>
+            <a href="{{ path('montrek_new') }}">Créer une nouvelle entrée</a>
         </li>
     </ul>
 {% endblock %}
