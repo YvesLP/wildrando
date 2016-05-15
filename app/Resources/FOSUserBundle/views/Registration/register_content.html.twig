@@ -2,32 +2,14 @@
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-register'}}) }}
 <div class="row">
-		<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		<div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 			<h2>Inscription</h2>
 		</div>
 	</div>
-<div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
-		{{ form_label(form.name)}}
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    		{{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Votre Nom'}}) }}
-		</div>
-	</div>
-</div>
+<br>
 <br>
 <div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
-		{{ form_label(form.lastname)}}
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    		{{ form_widget(form.lastname, { 'attr': {'class': 'form-control', 'placeholder': 'Votre Prenom'}}) }}
-		</div>
-	</div>
-</div>
-<br>
-<div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+	<div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 		{{ form_label(form.username)}}
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -36,18 +18,9 @@
 	</div>
 </div>
 <br>
-<div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
-		{{ form_label(form.birthday)}}
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-    		{{ form_widget(form.birthday, { 'attr': {'class': 'form-control'}}) }}
-		</div>
-	</div>
-</div>
 <br>
 <div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+	<div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 		{{ form_label(form.email)}}
 		<div class="input-group">
 			<span class="input-group-addon"><i>@</i></span>
@@ -57,7 +30,7 @@
 </div>
 <br>
 <div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+	<div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 		{{ form_label(form.plainPassword.first)}}
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -67,7 +40,7 @@
 </div>
 <br>
 <div class="row">
-	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+	<div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 		{{ form_label(form.plainPassword.second)}}
 		<div class="input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -77,8 +50,8 @@
 </div>
 <br>
 <div class="row">
-    <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
-        <input class="login btn btn-lg" type="submit" value="{{ 'registration.submit'|trans }}" />
+    <div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
+        <input class="login btn btn-lg btn-block" type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
 </div>
 {{ form_end(form) }}

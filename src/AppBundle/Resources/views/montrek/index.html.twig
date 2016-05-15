@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
-
+{% block menu %}{% include 'menu/index.html.twig' %}{% endblock %}
 {% block body %}
+<div class="row wrap-row">
+    <div class="col-lg-offset-1 col-lg-10 text-center ">
     <h1>Liste des randonnées effectuées</h1>
-
-    <div class="panel panel-default">
+    </div>
+    <div class="panel panel-default col-lg-offset-1 col-lg-10">
         <table class="table">
-            <div class="panel-heading">
-                <thead>
-                    <tr>
+            <div>
+                <thead >
+                    <tr >
                         <th>Id</th>
                         <th>Date</th>
                         <th>Temps réalisé</th>
@@ -49,9 +51,10 @@
         </table>
     </div>
 
-    <ul>
-        <li>
+    <div class="col-lg-offset-1 col-lg-10" >
+        <li class="btn bd-bl btn-bl ">
             <a href="{{ path('montrek_new') }}">Créer une nouvelle entrée</a>
         </li>
-    </ul>
+    </div>
 {% endblock %}
+{% block footer %}{% include 'footer/index.html.twig' %}{% endblock %}

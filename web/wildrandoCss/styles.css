@@ -21,6 +21,9 @@ body {
 	margin: 0 !important;
 	padding: 20px;
 }
+.wrap-row {
+ margin: 0 !important;
+}
 .marg-pad-h3 {
 	margin: 0 !important;
 	padding: 20px 0;
@@ -39,6 +42,16 @@ body {
 }
 .bg-tr {
 	background: transparent !important;
+}
+.btn-bl a {
+    color: #FFFFFF !important;
+}
+.btn-bl {
+    background-color: #3B3C3D;
+    color: #FFFFFF !important;
+}
+.btn-bl:hover {
+    color: #FFFFFF !important;
 }
 .bd-bl {
 	border: solid #3B3C3D 4px !important;	
@@ -166,14 +179,14 @@ html {
     background-size: cover;
 }
 .item:nth-child(2) {
-    background: url(http://localhost/SymfonyAll/wildrando/web/wildrandoImages/background-accueil.jpg) no-repeat center center fixed;
+    background: url(http://localhost/symfony/wildrando/web/wildrandoImages/background-accueil.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .item:nth-child(3) {
-    background: url(http://localhost/SymfonyAll/wildrando/web/wildrandoImages/Aiguille.jpg) no-repeat center center fixed;
+    background: url(http://localhost/symfony/wildrando/web/wildrandoImages/Aiguille.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

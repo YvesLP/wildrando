@@ -7,7 +7,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>            
-			<a class="nav-logo navbar-brand" href="">
+			<a class="nav-logo navbar-brand" href="{{ path('homepage') }}">
 				<img src="{{ asset('/wildrandoImages/randonneur.jpg') }}" alt="logo_wildcodeschool">
 			</a>
 		</div>
@@ -19,7 +19,13 @@
 				</ul>
 			{% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span>Se deconnecter</a></li> 
+					<li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span>Se deconnecter</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{ path('montrek_index') }}"><span class="glyphicon glyphicon-thumbs-up"></span>Mes sorties</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{ path('rando_index') }}"><span class="glyphicon glyphicon-plane"></span>Les randonnées</a></li>
 				</ul>
 			{% endif %}
 		</div>

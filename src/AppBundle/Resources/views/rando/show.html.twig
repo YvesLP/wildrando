@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block menu %}{% include 'menu/index.html.twig' %}{% endblock %}
 {% block body %}
     <script>
         function initialisation() {
@@ -111,3 +111,4 @@
         </ul>
     </div>
 {% endblock %}
+{% block footer %}{% include 'footer/index.html.twig' %}{% endblock %}
